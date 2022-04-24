@@ -56,6 +56,13 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.new_user.delete_user()
         self.assertEqual(len(Credentials.user_list),1)
-    
+        
+    def test_display_users(self):
+        '''
+          Test to affirm that we can see all the objects in our list
+        '''
+        self.assertEqual(Credentials.display_users(),Credentials.user_list)
+        
+        
 if __name__ == "__main__":
     unittest.main()

@@ -25,4 +25,11 @@ class Credentials:
           Removing an object from our list
         '''
         Credentials.user_list.remove(self)
+        
+    @classmethod
+    def display_users(cls):
+        '''
+         Method that shows all elements in our list
+        '''
+        return cls.user_list
    
