@@ -19,18 +19,11 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.user_name,"SpectreJeff")
         self.assertEqual(self.new_user.password,"Random33!")
         
-    def test_save_user(self):
+    def test_random_password(self):
         '''
-          Test to confirm we are storing the object
+          test to check if the random password generated is in the password list array
         '''
-        self.new_user.save_user()
-        self.assertEqual(len(Credentials.user_list),1)
-        
-    def tearDown(self):
-        '''
-           Method that runs after every test to clean up
-        '''
-        Credentials.user_list = []
+        self.assertTrue(Credentials.password_list.index(self.new_user.generate_random_password())>0)
     
     
 if __name__ == "__main__":
