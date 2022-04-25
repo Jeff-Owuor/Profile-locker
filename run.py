@@ -22,6 +22,13 @@ def save_users(user):
        function to save a user
     '''
     user.save_credential()
+ 
+def find_credential_by_name(name):
+    '''
+      function that takes a name and returns an object that matches that name
+    '''
+    return Credentials.find_by_credential_name(name)
+ 
     
 def delete_users(user):
     '''
@@ -94,13 +101,16 @@ def main():
                 credential_password  = input() 
             save_users(create_credential(account,credential_password))
         elif short_code == "del":
-            delete_users()   
+            print("Enter the credential you want deleted")
+            find_name = input();
+            if Credentials.find_by_credential_name(find_name):
+                delete_users(Credentials.find_by_credential_name(find_name))   
         elif short_code == 'dc':
             if display_users():
                 print("Here is a list of all your accounts")
                 print("\n")
                 for user in display_users():
-                    print(f"{user.user_name} <----> {user.password}")
+                    print(f"{user.application_name} <----> {user.password}")
                     print('\n')
             else:
                 print('\n')
