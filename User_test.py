@@ -1,6 +1,6 @@
 import unittest
 
-from credentials import User
+from User import User
 
 class TestUser(unittest.TestCase):
     '''
