@@ -71,9 +71,9 @@ def main():
         print("Please enter your user name and your password")
         print("User name:")
         userName = input()
-        print("password:")
+        print("Enter your password:")
         passWord = input()
-        print("It's good to have you back" + userName)
+        print("It's good to have you back " + userName + " :)")
     while True:
         print("Use the following short codes for your credentials")
         print("cc - create credential, del - delete account,dc - display credential, ex - exit your account")
@@ -83,8 +83,15 @@ def main():
             print("-"*10)
             print("Enter account")
             account = input()
-            print("Enter password")
-            credential_password = input()
+            print("Would you like a generated password?(Y/N)")
+            random_generated_password = input()
+            if random_generated_password == "Y":
+                credential_password  = Credentials.generate_random_password()
+                print("Password")
+                print("*"*8)
+            else:
+                print("Enter your password")
+                credential_password  = input() 
             save_users(create_credential(account,credential_password))
         elif short_code == "del":
             delete_users()   
@@ -93,11 +100,11 @@ def main():
                 print("Here is a list of all your accounts")
                 print("\n")
                 for user in display_users():
-                    print(f"{user.user_name} <-> {user.password}")
+                    print(f"{user.user_name} <----> {user.password}")
                     print('\n')
             else:
                 print('\n')
-                print("You do not seem to have any account saved yet")
+                print("You do not seem to have any credentials saved yet")
                 print('\n')
             
         elif short_code == "ex":
