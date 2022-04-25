@@ -13,27 +13,7 @@ class Credentials:
          function that returns a random password
         '''
         return cls.random_password
-       
-    def save_user(self):
-        '''
-          Adding the created object to the list
-        '''
-        Credentials.user_list.append(self)
     
-    def delete_user(self):
-        '''
-          Removing an object from our list
-        '''
-        Credentials.user_list.remove(self)
-        
-    @classmethod
-    def display_users(cls):
-        '''
-         Method that shows all elements in our list
-        '''
-        return cls.user_list
-
-
 class User:
     user_list = []
     def __init__(self,user_name,password):
@@ -51,6 +31,13 @@ class User:
         '''
           Removing an object from our list
         '''
-        Credentials.user_list.remove(self)
+        User.user_list.remove(self)
+    
+    @classmethod
+    def display_users(cls):
+        '''
+         Method that shows all elements in our list
+        '''
+        return cls.user_list
         
     
