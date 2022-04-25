@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.9
+
 from User import User
 from credentials import Credentials
 
@@ -67,4 +69,10 @@ def main():
                 print("You do not seem to have any account saved yet")
                 print('\n')
             
+        elif short_code == "ex":
+            print("Bye .....")
+            break
+        else:
+            print("I really didn't get that. Please use the short codes")
+
     
