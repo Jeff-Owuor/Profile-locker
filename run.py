@@ -9,24 +9,32 @@ def create_user(user_name,phone,email,password):
     '''
     new_user = User(user_name,phone,email,password)
     return new_user
+
+def create_credential(account,password):
+    '''
+     Function to create credential
+    '''
+    
+    new_credential = Credentials(account,password)
+    return new_credential;
 def save_users(user):
     '''
        function to save a user
     '''
-    user.save_user()
+    user.save_credential()
     
 def delete_users(user):
     '''
        function to delete a user 
     '''
-    user.delete_user()
+    user.delete_credential()
     
     
 def display_users():
     '''
       function that returns all saved users
     '''
-    return User.display_users()
+    return Credentials.display_credentials()
 
 def main():
     print("Hello Welcome to password locker")
@@ -68,10 +76,17 @@ def main():
         print("It's good to have you back" + userName)
     while True:
         print("Use the following short codes for your credentials")
-        print("del - delete account,dc - display credential, ex - exit your account")
+        print("cc - create credential, del - delete account,dc - display credential, ex - exit your account")
         short_code = input().lower()
-        
-        if short_code == "del":
+        if short_code == "cc":
+            print("New credential")
+            print("-"*10)
+            print("Enter account")
+            account = input()
+            print("Enter password")
+            credential_password = input()
+            save_users(create_credential(account,credential_password))
+        elif short_code == "del":
             delete_users()   
         elif short_code == 'dc':
             if display_users():

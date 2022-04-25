@@ -18,4 +18,16 @@ class Credentials:
           Adding the created object to the list
         '''
         Credentials.credential_list.append(self)
+    def delete_credential(self):
+        '''
+          Removing an object from our list
+        '''
+        Credentials.credential_list.remove(self)
+        
+    @classmethod
+    def display_credentials(cls):
+        '''
+         Method that shows all elements in our list
+        '''
+        return cls.credential_list
     
