@@ -1,9 +1,11 @@
 class User:
     user_list = []
-    def __init__(self,user_name,password):
+    def __init__(self,user_name,phone_number,email,password):
         self.user_name = user_name
         self.password = password
-    
+        self.phone_number = phone_number
+        self.email = email
+       
     def save_user(self):
         '''
           Adding the created object to the list

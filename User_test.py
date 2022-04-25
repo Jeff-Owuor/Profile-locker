@@ -11,15 +11,17 @@ class TestUser(unittest.TestCase):
         '''
           Runs before the tests
         '''
-        self.new_user = User("SpectreJeff","Random33!");
+        self.new_user = User("Ayieko","0712345678","someone@gmail.com","Coolant");
         
     def test_init(self):
         '''
           Test to check if the object is initialized properly
         '''
-        self.assertEqual(self.new_user.user_name,"SpectreJeff")
-        self.assertEqual(self.new_user.password,"Random33!")
-        
+        self.assertEqual(self.new_user.user_name,"Ayieko")
+        self.assertEqual(self.new_user.phone_number,"0712345678")
+        self.assertEqual(self.new_user.email,"someone@gmail.com")
+        self.assertEqual(self.new_user.password,"Coolant")
+       
     def test_save_user(self):
         '''
           test to confirm we can store our object
