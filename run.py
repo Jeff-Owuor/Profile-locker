@@ -29,46 +29,56 @@ def display_users():
     return User.display_users()
 
 def main():
-    print("Hello Welcome to your contact list. What is your name?")
-    user_name = input()
-    print(f"Hello {user_name}. What would you like to do?")
-    print("\n")
+    print("Hello Welcome to password locker")
+    print("Use these short codes : ca - create a new account,lg - login to account")
+    short_code = input().lower()
+    if short_code == "ca":
+        print("New User")
+        print("-"*10)
+        print("Enter preferred user name ...")
+        user_name = input()
+            
+        print("Phone number ...")
+        p_number = input()
+            
+        print("Email address ...")
+        e_address = input()
+            
+        print("Would you like a suggested password?(Y/N)")
+        random_password = input()
+        if random_password == "Y":
+            passkey = Credentials.generate_random_password()
+            print("Password")
+            print("*"*8)
+        else:
+            print("Enter your password")
+            passkey = input() 
+            
+        save_users(create_user(user_name,p_number,e_address,passkey));
+        print("\n")
+        print(f"New User  {user_name} created")
+        print("\n")
+        
+    elif short_code == "lg":
+        print("Please enter your user name and your password")
+        print("User name:")
+        userName = input()
+        print("password:")
+        passWord = input()
+        print("It's good to have you back" + userName)
     while True:
-        print("Use these short codes : ca - create a new account, du - display user, ex - exit the contact list")
+        print("Use the following short codes for your credentials")
+        print("del - delete account,dc - display credential, ex - exit your account")
         short_code = input().lower()
-        if short_code == 'ca':
-            print("New User")
-            print("-"*10)
-            print("Enter preferred user name ...")
-            user_name = input()
-            
-            print("Phone number ...")
-            p_number = input()
-            
-            print("Email address ...")
-            e_address = input()
-            
-            print("Would you like a suggested password?(Y/N)")
-            random_password = input()
-            if random_password == "Y":
-                passkey = Credentials.generate_random_password()
-                print("Password")
-                print("********")
-            else:
-                print("Enter your password")
-                passkey = input() 
-            
-            save_users(create_user(user_name,p_number,e_address,passkey));
-            print("\n")
-            print(f"New User  {user_name} created")
-            print("\n")
-            
-        elif short_code == 'du':
+        
+        if short_code == "del":
+            delete_users()   
+        elif short_code == 'dc':
             if display_users():
                 print("Here is a list of all your accounts")
                 print("\n")
                 for user in display_users():
-                    print(f"{user.user_name} ..... {user.password}")
+                    print(f"{user.user_name} <-> {user.password}")
                     print('\n')
             else:
                 print('\n')

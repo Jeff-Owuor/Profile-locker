@@ -1,6 +1,6 @@
 import random
 class Credentials:
-    user_list = []
+    credential_list = []
     password_list = ["Bully911","Champez254","Lildurk7","XotourUzi1","Emergingh20","dIvergencE666","ModuloFanForum11","Oldtraffordseat12"]
     random_password = random.choice(password_list)
     def __init__(self,user_name,password):
@@ -13,4 +13,9 @@ class Credentials:
          function that returns a random password
         '''
         return cls.random_password
+    def save_credential(self):
+        '''
+          Adding the created object to the list
+        '''
+        Credentials.credential_list.append(self)
     

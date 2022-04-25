@@ -25,6 +25,13 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertTrue(Credentials.password_list.index(self.new_user.generate_random_password())>0)
     
+    def test_save_credential(self):
+        '''
+          test to confirm we can store our object
+        '''
+        self.new_user.save_credential()
+        self.assertEqual(len(Credentials.credential_list),1)
+        
    
         
 if __name__ == "__main__":
