@@ -39,7 +39,7 @@ def main():
         if short_code == 'ca':
             print("New User")
             print("-"*10)
-            print("First name ...")
+            print("Enter preferred user name ...")
             user_name = input()
             
             print("Phone number ...")
@@ -48,11 +48,17 @@ def main():
             print("Email address ...")
             e_address = input()
             
-            print("Last name ...")
-            password = input()
+            print("Would you like a suggested password?(Y/N)")
+            random_password = input()
+            if random_password == "Y":
+                passkey = Credentials.generate_random_password()
+                print("Password")
+                print("********")
+            else:
+                print("Enter your password")
+                passkey = input() 
             
-            
-            save_users(create_user(user_name,p_number,e_address,password));
+            save_users(create_user(user_name,p_number,e_address,passkey));
             print("\n")
             print(f"New User  {user_name} created")
             print("\n")
@@ -70,7 +76,7 @@ def main():
                 print('\n')
             
         elif short_code == "ex":
-            print("Bye .....")
+            print("see you soon.....")
             break
         else:
             print("I really didn't get that. Please use the short codes")
