@@ -80,7 +80,11 @@ def main():
         userName = input()
         print("Enter your password:")
         passWord = input()
-        print("It's good to have you back " + userName + " :)")
+        if Credentials.find_by_credential_name(userName) and Credentials.password == passWord:
+            print("It's good to have you back " + userName + " :)")
+        else:
+            print("Invalid login credentials") 
+            return
     while True:
         print("Use the following short codes for your credentials")
         print("cc - create credential, del - delete account,dc - display credential, ex - exit your account")
