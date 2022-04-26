@@ -1,3 +1,4 @@
+import pyperclip
 import random
 class Credentials:
     credential_list = []
@@ -40,3 +41,10 @@ class Credentials:
             if credential.application_name == name:
                 return credential
     
+    @classmethod
+    def copy_credentials(cls,name):
+        '''
+          Function that copies the credentials to the clipboard
+        '''
+        credentials_found = Credentials.find_by_credential_name(name)
+        pyperclip.copy(credentials_found)

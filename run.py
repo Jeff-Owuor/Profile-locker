@@ -43,6 +43,12 @@ def display_users():
     '''
     return Credentials.display_credentials()
 
+def copy_credentials(name):
+    '''
+      function that copies the email of an existing contact
+    '''
+    return Credentials.copy_credentials(name)
+
 def main():
     print("Hello Welcome to password locker")
     print("Use these short codes : ca - create a new account,lg - login to account")
